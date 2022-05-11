@@ -1,6 +1,15 @@
 /* CSS Document */
+@font-face {
+    font-family: 'clickybricks';
+    src: url('../fonts/clickybricks-webfont.woff2') format('woff2'),
+         url('../fonts/clickybricks-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 *, *::after, *::before {
-  box-sizing:border-box;  
+  box-sizing:border-box;
 }
 
 html, body {
@@ -14,6 +23,147 @@ button:not([disabled]) {
 
 /* jouw CSS vanaf hier */
 
-h1 {
-  color:crimson;
+body {
+  background: hsl(207deg 100% 50%);
+}
+
+header img {
+  width: 12em;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 12.5em 12.5em 1fr;
+  height: 100vh;
+}
+
+main h1 {
+  font-family: 'clickybricks';
+  color: white;
+  font-size: 6em;
+  display: grid;
+  place-items: center;
+  grid-column-start: 2;
+}
+
+button.left {
+  width: 10em;
+  background:none;
+  border:none;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  transform: rotateY(180deg);
+  place-self: end;
+}
+
+button.right {
+  width: 10em;
+  background:none;
+  border:none;
+  grid-column-start: 3;
+	grid-row-start: 3;
+  place-self: end start;
+}
+
+article {
+  position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 2;
+}
+
+article::after /* Source: Sanne */ {
+  content:"";
+  position:absolute;
+  bottom: -8em;
+
+  width:22em;
+  height:4em;
+
+  background-image:radial-gradient(hsl(207deg 100% 30%), hsl(207deg 100% 50% / 0));
+  filter:blur(10px);
+  border-radius: 50%;
+}
+
+section.top {
+  width: 8em;
+  height: 2.5em;
+  background-color: hsl(48deg 85% 50%);
+  border-radius: 1em 1em 0 0;
+  border: 1em black;
+  border-style: solid solid hidden solid;
+}
+
+section.middle {
+  width: 20em;
+  height: 18em;
+  background-color: hsl(48deg 85% 50%);
+  border-radius: 4em;
+  border: 1em solid black;
+  display: grid;
+  place-items: center;
+}
+
+section.bottom {
+  width: 12em;
+  height: 2em;
+  background-color: hsl(48deg 85% 50%);
+  border-radius: 0 0 1em 1em;
+  border: 1em solid black;
+  border-style: hidden solid solid solid;
+}
+
+section.middle img {
+  height: 9em;
+  padding-top: 3em;
+}
+
+ol.accessoires {
+  margin: 1em;
+  padding: 0;
+  border-radius: 1em;
+  background: white;
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: hsl(207deg 100% 35%);
+  border: .2em solid black;
+  list-style: none;
+  display: grid;
+  grid-template-columns: .8em 1fr 1fr 1fr 1fr .8em;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  column-gap: .8em;
+  row-gap: .8em;
+}
+
+ol.accessoires h2 {
+  color: white;
+  font-family: 'clickybricks';
+  grid-row-start: 1;
+  grid-column-start: 2;
+  grid-column-end: 7;
+}
+
+ol.accessoires li:first-of-type {
+  grid-row-start: 2;
+  grid-column-start: 2;
+}
+
+ol.accessoires li button {
+  width: 6em;
+  height: 6em;
+  border-radius: 1em;
+  background-color: white;
+}
+
+ol.accessoires li button img {
+  width: 4em;
 }
