@@ -50,6 +50,14 @@ main h1 {
   grid-column-start: 2;
 }
 
+p.info {
+  grid-row-start: 2;
+  grid-column-start: 1;
+  align-items: start;
+  color: white;
+  margin-left: 1em;
+}
+
 button.left {
   width: 10em;
   background:none;
@@ -70,14 +78,21 @@ button.right {
 }
 
 article {
-  position:relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  position: relative;
+
   grid-row-start: 2;
   grid-row-end: 4;
   grid-column-start: 2;
+
+  display: grid;
+  place-items:center;
+  place-content:center;
+
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  /*flex-direction: column;*/
+
+
 }
 
 article::after /* Source: Sanne */ {
@@ -91,6 +106,51 @@ article::after /* Source: Sanne */ {
   background-image:radial-gradient(hsl(207deg 100% 30%), hsl(207deg 100% 50% / 0));
   filter:blur(10px);
   border-radius: 50%;
+}
+
+section.hat {
+  position: absolute;
+  width: 25em;
+  top: -5em;
+  transform: translateY(-10em);
+  transition: 1s;
+}
+
+section.hat img {
+  width:100%;
+}
+
+section.hat[data-hoofddeksel="legohat1"] {
+  transform: translateY(2em);
+}
+
+section.hat[data-hoofddeksel="legohat1"] img {
+  content: url("../images/LegoHat1.png");
+}
+
+section.hat[data-hoofddeksel="legohat2"] {
+  transform: translateY(0);
+}
+
+section.hat[data-hoofddeksel="legohat2"] img {
+  content: url("../images/LegoHat2.png");
+}
+
+section.hat[data-hoofddeksel="legohat3"] {
+  transform: translateY(0);
+  width: 30em;
+}
+
+section.hat[data-hoofddeksel="legohat3"] img {
+  content: url("../images/LegoHat3.png");
+}
+
+section.hat[data-hoofddeksel="legohat4"] {
+  transform: translateY(0);
+}
+
+section.hat[data-hoofddeksel="legohat4"] img {
+  content: url("../images/LegoHat4.png");
 }
 
 section.top {
@@ -126,44 +186,68 @@ section.middle img {
   padding-top: 3em;
 }
 
-ol.accessoires {
+section.middle img[data-jaartal="1989"] {
+  content: url("../images/LegoFace1.svg");
+  height: 10em;
+}
+
+aside.accessoires {
   margin: 1em;
-  padding: 0;
-  border-radius: 1em;
-  background: white;
+  padding:.8em;
+
   grid-column-start: 3;
   grid-row-start: 1;
   grid-row-end: 3;
   background-color: hsl(207deg 100% 35%);
+
   border: .2em solid black;
-  list-style: none;
-  display: grid;
-  grid-template-columns: .8em 1fr 1fr 1fr 1fr .8em;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  column-gap: .8em;
-  row-gap: .8em;
+  border-radius: 1em;
+
+  position: relative;
+  z-index:1000;
 }
 
-ol.accessoires h2 {
+.accessoires h2 {
   color: white;
   font-family: 'clickybricks';
-  grid-row-start: 1;
-  grid-column-start: 2;
-  grid-column-end: 7;
+  margin:0;
 }
 
-ol.accessoires li:first-of-type {
-  grid-row-start: 2;
-  grid-column-start: 2;
+.accessoires ol {
+  margin:0;
+  margin-top: 1em;
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: .8em
 }
 
-ol.accessoires li button {
-  width: 6em;
-  height: 6em;
+.accessoires button {
+  width: 100%;
+  aspect-ratio:1/1;
   border-radius: 1em;
   background-color: white;
+  display: none;
 }
 
-ol.accessoires li button img {
-  width: 4em;
+.accessoires.j1979 button.j1979,
+.accessoires.j1989 button.j1989,
+.accessoires.j1990 button.j1990 {
+  display: block;
+}
+
+.accessoires button.actieveAccessoiresButton {
+  background-color: red;
+}
+
+.accessoires  img {
+  width: 80%;
+}
+
+.accessoires.removeAll {
+  display: block;
+  /*order: 2;*/
 }
