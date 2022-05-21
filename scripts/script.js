@@ -47,15 +47,15 @@ var hetHoofddeksel = document.querySelector(".hat");
 deHoofddekselButtons.forEach(deButtonWaarJeInHetLijstjeBent => {
   deButtonWaarJeInHetLijstjeBent.addEventListener("click", function(e) {
 
-    hetHoofddeksel.dataset.hoofddeksel = this.value;
-
+    hetHoofddeksel.dataset.hoofddeksel = "";
+    setTimeout(() => {
+      hetHoofddeksel.dataset.hoofddeksel = this.value;
+    }, 1);
   });
 });
 
-// deButtonAccessoires.addEventListener("click", zetPetOp);
-// var muts = document.querySelector("section.hat img")
-
-// function zetPetOp() {
-//   deButtonAccessoires.classList.toggle("actieveAccessoiresButton")
-//   muts.classList.toggle("mutsOpHoofd")
-// }
+function playAudio(url) {
+  setTimeout(() => {
+    new Audio(url).play();
+  }, 500);
+}

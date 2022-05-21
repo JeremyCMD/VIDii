@@ -1,12 +1,35 @@
 /* CSS Document */
 @font-face {
-    font-family: 'clickybricks';
-    src: url('../fonts/clickybricks-webfont.woff2') format('woff2'),
-         url('../fonts/clickybricks-webfont.woff') format('woff');
+  font-family: 'clickybricks';
+  src: url('../fonts/clickybricks-webfont.woff2') format('woff2'),
+       url('../fonts/clickybricks-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'gilroy';
+    src: url('../fonts/gilroy-light-webfont.woff2') format('woff2'),
+         url('../fonts/gilroy-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
+
+:root {
+  --achtergrond-kleur: hsl(207deg 100% 50%);
+  --schaduw: radial-gradient(hsl(207deg 100% 30%), hsl(207deg 100% 50% / 0));
+  --lego-geel: hsl(48deg 85% 50%);
+  --text-kleur: white;
+  --achtergrond-accessoires: hsl(207deg 100% 35%);
+}
+
+/*@media (prefers-color-scheme: dark) {
+  :root {
+    --achtergrond-kleur: hsl(207deg 100% 20%);
+    --schaduw: radial-gradient(hsl(207deg 100% 5%), hsl(207deg 100% 50% / 0));
+    --achtergrond-accessoires: hsl(207deg 100% 10%);
+  }
+}*/
 
 *, *::after, *::before {
   box-sizing:border-box;
@@ -24,96 +47,104 @@ button:not([disabled]) {
 /* jouw CSS vanaf hier */
 
 body {
-  background: hsl(207deg 100% 50%);
+  background: var(--achtergrond-kleur);
 }
 
 header img {
-  width: 12em;
   position: absolute;
   top: 1em;
   left: 1em;
+
+  width: 12em;
 }
 
 main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr 12.5em 12.5em 1fr;
+
   height: 100vh;
 }
 
 main h1 {
-  font-family: 'clickybricks';
-  color: white;
-  font-size: 6em;
   display: grid;
-  place-items: center;
   grid-column-start: 2;
+  place-items: center;
+
+  font-family: 'clickybricks';
+  font-size: 6em;
+  color: var(--text-kleur);
 }
 
-p.info {
+p {
   grid-row-start: 2;
   grid-column-start: 1;
   align-items: start;
+
   color: white;
+
   margin-left: 1em;
+  margin-right: 1em;
+
+  font-family: 'gilroy';
+  font-size: 1.5em;
 }
 
 button.left {
-  width: 10em;
-  background:none;
-  border:none;
   grid-column-end: 2;
   grid-row-start: 3;
-  transform: rotateY(180deg);
   place-self: end;
+
+  background:none;
+  border:none;
+
+  width: 10em;
+
+  transform: rotateY(180deg);
 }
 
 button.right {
-  width: 10em;
+  grid-column-start: 3;
+  grid-row-start: 3;
+  place-self: end start;
+
   background:none;
   border:none;
-  grid-column-start: 3;
-	grid-row-start: 3;
-  place-self: end start;
+
+  width: 10em;
 }
 
 article {
+  display: grid;
   position: relative;
 
   grid-row-start: 2;
   grid-row-end: 4;
   grid-column-start: 2;
 
-  display: grid;
   place-items:center;
   place-content:center;
-
-  /*justify-content: center;*/
-  /*align-items: center;*/
-  /*flex-direction: column;*/
-
-
 }
 
 article::after /* Source: Sanne */ {
-  content:"";
-  position:absolute;
+  content: "";
+  position: absolute;
+  height: 4em;
   bottom: -8em;
 
-  width:22em;
-  height:4em;
+  width: 22em;
 
-  background-image:radial-gradient(hsl(207deg 100% 30%), hsl(207deg 100% 50% / 0));
-  filter:blur(10px);
+  background-image: var(--schaduw);
+  filter: blur(10px);
   border-radius: 50%;
 }
 
 section.hat {
   position: absolute;
-  width: 25em;
-  top: -5em;
+  top: -12em;
+  width: 35em;
+
   transform: translateY(-10em);
-  transition: 1s;
 }
 
 section.hat img {
@@ -121,7 +152,8 @@ section.hat img {
 }
 
 section.hat[data-hoofddeksel="legohat1"] {
-  transform: translateY(2em);
+  transform: translateY(0);
+  transition: 1s;
 }
 
 section.hat[data-hoofddeksel="legohat1"] img {
@@ -130,6 +162,7 @@ section.hat[data-hoofddeksel="legohat1"] img {
 
 section.hat[data-hoofddeksel="legohat2"] {
   transform: translateY(0);
+  transition: 1s;
 }
 
 section.hat[data-hoofddeksel="legohat2"] img {
@@ -137,8 +170,8 @@ section.hat[data-hoofddeksel="legohat2"] img {
 }
 
 section.hat[data-hoofddeksel="legohat3"] {
-  transform: translateY(0);
-  width: 30em;
+  transform: translateY(-4em);
+  transition: 1s;
 }
 
 section.hat[data-hoofddeksel="legohat3"] img {
@@ -146,36 +179,49 @@ section.hat[data-hoofddeksel="legohat3"] img {
 }
 
 section.hat[data-hoofddeksel="legohat4"] {
-  transform: translateY(0);
+  transform: translateY(4em);
+  transition: 1s;
 }
 
 section.hat[data-hoofddeksel="legohat4"] img {
   content: url("../images/LegoHat4.png");
 }
 
+@media (prefers-color-scheme:dark) {
+  section.hat[data-hoofddeksel="legohat4"] img {
+    filter:drop-shadow(0 0 2em lime);
+  }
+}
+
 section.top {
   width: 8em;
   height: 2.5em;
-  background-color: hsl(48deg 85% 50%);
+
+  background-color: var(--lego-geel);
+
   border-radius: 1em 1em 0 0;
   border: 1em black;
   border-style: solid solid hidden solid;
 }
 
 section.middle {
-  width: 20em;
-  height: 18em;
-  background-color: hsl(48deg 85% 50%);
-  border-radius: 4em;
-  border: 1em solid black;
   display: grid;
   place-items: center;
+
+  width: 20em;
+  height: 18em;
+
+  background-color: var(--lego-geel);
+  border-radius: 4em;
+  border: 1em solid black;
 }
 
 section.bottom {
   width: 12em;
   height: 2em;
-  background-color: hsl(48deg 85% 50%);
+
+  background-color: var(--lego-geel);
+
   border-radius: 0 0 1em 1em;
   border: 1em solid black;
   border-style: hidden solid solid solid;
@@ -191,6 +237,11 @@ section.middle img[data-jaartal="1989"] {
   height: 10em;
 }
 
+section.middle img[data-jaartal="1990"] {
+  content: url("../images/LegoFace2.svg");
+  height: 10em;
+}
+
 aside.accessoires {
   margin: 1em;
   padding:.8em;
@@ -198,7 +249,7 @@ aside.accessoires {
   grid-column-start: 3;
   grid-row-start: 1;
   grid-row-end: 3;
-  background-color: hsl(207deg 100% 35%);
+  background-color: var(--achtergrond-accessoires);
 
   border: .2em solid black;
   border-radius: 1em;
@@ -208,30 +259,36 @@ aside.accessoires {
 }
 
 .accessoires h2 {
-  color: white;
+  color: var(--text-kleur);
   font-family: 'clickybricks';
   margin:0;
+  text-transform: uppercase;
 }
 
 .accessoires ol {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: .8em;
+
   margin:0;
   margin-top: 1em;
   padding: 0;
   list-style: none;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: .8em
 }
 
 .accessoires button {
   width: 100%;
-  aspect-ratio:1/1;
+  aspect-ratio: 1/1;
+  max-width: 8em;
   border-radius: 1em;
   background-color: white;
+}
+
+.accessoires button:not(.removeAll) {
   display: none;
 }
+
 
 .accessoires.j1979 button.j1979,
 .accessoires.j1989 button.j1989,
@@ -247,7 +304,17 @@ aside.accessoires {
   width: 80%;
 }
 
-.accessoires.removeAll {
-  display: block;
-  /*order: 2;*/
+.accessoires li:last-of-type {
+  grid-column-start: 4;
+  grid-row-start: 3;
+}
+
+.lightsOut {
+  grid-column-start: 3;
+  grid-row-start: 4;
+  place-self: end;
+
+  width: 5em;
+  height: 5em;
+  margin: 2em;
 }
