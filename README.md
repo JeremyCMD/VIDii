@@ -56,19 +56,18 @@ Mijn startniveau is: Rood
   <summary>Mijn eindresultaat & persoonlijke ontwikkeling</summary>
 
   ### Je uitkomst - karakteristiek screenshot(s):
-  <img src="readme-images/uitkomst.jpg" width="375px" alt="final ontwerp">
   Ik ben erg tevreden met mijn uiteindelijke resultaat! Het ziet er (vind ik) mooi uit en het is meer dan ik aan het begin van het vak dacht dat ik kon met code. Ik vind het erg jammer dat ik door mijn ziekenhuisbezoek een aantal lessen heb gemist en hierdoor ook wat feedback momenten heb gemist.
+  
+  <img src="readme-images/uitkomst.jpg" width="375px" alt="final ontwerp">
 
   ### Dit ging goed/Heb ik geleerd:
   Korte omschrijving met plaatje(s)
+  Ik ben vooral trots op mijn animaties. Alles werkt soepel en het ziet er mooi uit. Ook ben ik blij met mijn kleurgebruik op de hele website, het past heel erg bij LEGO.
 
   <img src="readme-images/trots.jpg" width="375px" alt="top">
-  Ik ben vooral trots op mijn animaties. Alles werkt soepel en het ziet er mooi uit. Ook ben ik blij met mijn kleurgebruik op de hele website, het past heel erg bij LEGO.
 
   ### Dit was lastig/Is niet gelukt:
   Korte omschrijving met plaatje(s)
-
-  <img src="readme-images/head-spinning.gif" width="375px" alt="bummer">
   Er is zo ontzettend veel wat ik nog had willen maken en wat beter had gekunt. Hierdoor heb ik wel super veel geleerd en zal ik dit in de toekomst anders aanpakken. Een aantal voorbeelden van dingen die ik nog had willen doen:
   - Ik had eigenlijk nog het hoofdje willen laten draaien als je naar een ander jaar gaat.
   - Een dark mode knop.
@@ -77,6 +76,8 @@ Mijn startniveau is: Rood
   - Een animatie voor als een accessoire van het hoofdje gaat.
   - Paaseitjes!
   - Meer feedback en een betere ReadMe :/
+
+  <img src="readme-images/head-spinning.gif" width="375px" alt="bummer">
 
 </details>
 
