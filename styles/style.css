@@ -21,6 +21,7 @@
   --lego-geel: hsl(48deg 85% 50%);
   --text-kleur: white;
   --achtergrond-accessoires: hsl(207deg 100% 35%);
+  --gezicht-harry-potter: #FFC9B1;
 }
 
 /*@media (prefers-color-scheme: dark) {
@@ -44,16 +45,14 @@ button:not([disabled]) {
   cursor:pointer;
 }
 
-/* jouw CSS vanaf hier */
-
 body {
   background: var(--achtergrond-kleur);
 }
 
 header img {
   position: absolute;
-  top: 1em;
-  left: 1em;
+  top: 1.5em;
+  left: 1.5em;
 
   width: 12em;
 }
@@ -81,13 +80,33 @@ p {
   grid-column-start: 1;
   align-items: start;
 
+  background-color: var(--achtergrond-accessoires);
   color: white;
 
+  border: .1em solid black;
+  border-radius: 1em;
   margin-left: 1em;
   margin-right: 1em;
+  padding: 1em;
 
   font-family: 'gilroy';
   font-size: 1.5em;
+}
+
+button.left:hover img, button.right:hover img {
+  content: url("../images/LegoArrowFocus.svg");
+}
+
+button.left:focus, button.right:focus {
+  outline: none;
+}
+
+button.left:focus img, button.right:focus img {
+  content: url("../images/LegoArrowFocus.svg");
+}
+
+button.left:active img, button.right:active img {
+  content: url("../images/LegoArrowPressed.svg");
 }
 
 button.left {
@@ -185,12 +204,25 @@ section.hat[data-hoofddeksel="legohat4"] {
 
 section.hat[data-hoofddeksel="legohat4"] img {
   content: url("../images/LegoHat4.png");
+  filter: drop-shadow(0 0 2em lime);
 }
 
-@media (prefers-color-scheme:dark) {
-  section.hat[data-hoofddeksel="legohat4"] img {
-    filter:drop-shadow(0 0 2em lime);
-  }
+section.hat[data-hoofddeksel="legohat5"] img {
+  content: url("../images/LegoHat5.png");
+  transform: translateY(10em);
+  transition: 1s;
+}
+
+section.hat[data-hoofddeksel="legohat6"] img {
+  content: url("../images/LegoHat6.png");
+  transform: translateY(12em);
+  transition: 1s;
+}
+
+section.hat[data-hoofddeksel="legohat7"] img {
+  content: url("../images/LegoHat7.png");
+  transform: translateY(11em);
+  transition: 1s;
 }
 
 section.top {
@@ -242,6 +274,21 @@ section.middle img[data-jaartal="1990"] {
   height: 10em;
 }
 
+section.middle img[data-jaartal="1999"] {
+  content: url("../images/LegoFace3.svg");
+  height: 11em;
+}
+
+section.middle img[data-jaartal="2004"] {
+  content: url("../images/LegoFace4.svg");
+  height: 12em;
+  padding-top: 1.5em;
+}
+
+article[data-jaartal="2004"] .top, article[data-jaartal="2004"] .middle, article[data-jaartal="2004"] .bottom {
+  background-color: var(--gezicht-harry-potter);
+}
+
 aside.accessoires {
   margin: 1em;
   padding:.8em;
@@ -268,7 +315,7 @@ aside.accessoires {
 .accessoires ol {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: .8em;
 
   margin:0;
@@ -280,9 +327,24 @@ aside.accessoires {
 .accessoires button {
   width: 100%;
   aspect-ratio: 1/1;
-  max-width: 8em;
+  width: 8em;
   border-radius: 1em;
   background-color: white;
+
+  font-family: 'gilroy';
+}
+
+.accessoires button:hover {
+  width: 9em;
+  transition: .5s;
+  filter: drop-shadow(0 0 1em white);
+}
+
+.accessoires button:focus {
+  width: 9em;
+  transition: .5s;
+  filter: drop-shadow(0 0 1em white);
+  outline: none;
 }
 
 .accessoires button:not(.removeAll) {
@@ -292,7 +354,10 @@ aside.accessoires {
 
 .accessoires.j1979 button.j1979,
 .accessoires.j1989 button.j1989,
-.accessoires.j1990 button.j1990 {
+.accessoires.j1990 button.j1990,
+.accessoires.j1993 button.j1993,
+.accessoires.j1999 button.j1999,
+.accessoires.j2004 button.j2004 {
   display: block;
 }
 
@@ -301,20 +366,11 @@ aside.accessoires {
 }
 
 .accessoires  img {
-  width: 80%;
+  max-width: 80%;
+  max-height: 80%;
 }
 
 .accessoires li:last-of-type {
   grid-column-start: 4;
-  grid-row-start: 3;
-}
-
-.lightsOut {
-  grid-column-start: 3;
-  grid-row-start: 4;
-  place-self: end;
-
-  width: 5em;
-  height: 5em;
-  margin: 2em;
+  grid-row-start: 2;
 }

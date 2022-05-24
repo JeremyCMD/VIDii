@@ -8,8 +8,6 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
 
-
-
 ## Jij
 
 ### Ontwerper:
@@ -17,8 +15,6 @@ Jeremy Hansma
 
 #### Je startniveau:
 Mijn startniveau is: Rood
-
-
 
 
 
@@ -161,8 +157,8 @@ Mijn startniveau is: Rood
 
 Nb. Wees specifiek ('css-tricks' als bron is bijv. niet specifiek genoeg).
 
-1. bron 1
-2. bron 2
+1. https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
+2. bhttps://javascript.plainenglish.io/how-to-detect-arrow-key-presses-in-javascript-2c38192de0e8
 3. ...
 
 </details>
